@@ -23,6 +23,7 @@
     "@ngx-translate/http-loader": "^7.0.0",
     "@types/jquery": "^3.5.32",
     "@types/slick-carousel": "^1.6.40",
+    "bcryptjs": "^3.0.2",
     "firebase": "^11.8.1",
     "jquery": "^3.7.1",
     "ngx-slick-carousel": "^19.0.0",

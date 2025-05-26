@@ -90,7 +90,7 @@
         </div>
     </nav>
     <!-- Modal de Mantenimiento -->
-    <div *ngIf="showMaintenanceModal"
+    <div *ngIf="showMaintenanceModal()"
          class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center"
          (click)="closeMaintenanceModal()">
         <div class="bg-white rounded-xl shadow-xl w-max max-w-[90vw] p-6 relative max-h-[90vh] overflow-y-auto"

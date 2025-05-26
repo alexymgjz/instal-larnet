@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit, signal} from '@angular/core';
 import {NgClass, NgForOf, NgIf, UpperCasePipe} from '@angular/common';
 import {TranslateModule} from '@ngx-translate/core';
 import {LanguageService} from '../../services/language.service';
 import {FormsModule} from '@angular/forms';
 import {FirebaseApp} from "@angular/fire/app";
 import {MantenimientoComponent} from "../mantenimiento/mantenimiento.component";
+import {UiStateService} from "../../services/UiStateService";
 @Component({
   selector: 'app-header',
   imports: [
@@ -23,7 +24,8 @@ import {MantenimientoComponent} from "../mantenimiento/mantenimiento.component";
 export class HeaderComponent implements OnInit {
   activeChild: string = 'app-section-1'; // Estado para controlar qué componente hijo está activo
   isMenuOpen = false;
-
+  private ui = inject(UiStateService);
+  showMaintenanceModal = this.ui.showMaintenanceModal;
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
@@ -56,15 +58,14 @@ export class HeaderComponent implements OnInit {
       this.currentLanguage = selectedLanguage;
     }
   }
-  showMaintenanceModal = false;
 
   openMaintenanceModal() {
-    this.showMaintenanceModal = true;
+    this.showMaintenanceModal.set(true)
     this.isMenuOpen = false; // Cierra menú mobile si estaba abierto
   }
 
   closeMaintenanceModal() {
-    this.showMaintenanceModal = false;
+    this.showMaintenanceModal.set(false)
   }
 
 

@@ -7,8 +7,8 @@
                 type="password"
                 class="border rounded px-4 py-2"
                 placeholder="Introduce la clave"
-                [value]="clave()"
-                (input)="clave.set($any($event.target).value)"
+                [(ngModel)]="password"
+                (input)="password = $any($event.target).value"
         />
         <button class="ml-2 px-4 py-2 bg-blue-600 text-white rounded" (click)="verificarClave()">Entrar</button>
     </div>

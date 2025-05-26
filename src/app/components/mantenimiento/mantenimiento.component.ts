@@ -1,7 +1,10 @@
 import { Component, inject, signal, computed } from '@angular/core';
+import * as bcrypt from 'bcryptjs';
 import { ConfigStoreService } from '../../services/config-store.service';
 import { ConfigSchema } from '../../services/config.schema';
-import {NgForOf, NgIf} from "@angular/common";
+import {NgClass, NgForOf, NgIf} from "@angular/common";
+import {UiStateService} from "../../services/UiStateService";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-mantenimiento',
@@ -9,13 +12,18 @@ import {NgForOf, NgIf} from "@angular/common";
   templateUrl: './mantenimiento.component.html',
   imports: [
     NgIf,
-    NgForOf
+    NgForOf,
+    FormsModule
   ]
 })
 export class MantenimientoComponent {
+
+  private ui = inject(UiStateService);
+  showMaintenanceModal = this.ui.showMaintenanceModal;
   private store = inject(ConfigStoreService);
   acceso = signal(false);
-  clave = signal('');
+  password = '';
+  password_hashed = '$2a$12$Fd8V6dnDyavSej8fX33dsu6mMvOAmpUdn.i3vXx0R2sQfQlqTM9Ii'
   config = computed(() => this.store.config());
 
   async ngOnInit() {
@@ -24,9 +32,9 @@ export class MantenimientoComponent {
     console.log('✅ Configuración cargada correctamente:', this.store.current);
   }
 
+
   verificarClave() {
-    this.acceso.set(this.clave() === 'admin123');
-    if (!this.acceso()) {
+    this.acceso.set(bcrypt.compareSync(this.password, this.password_hashed));if (!this.acceso()) {
       alert('❌ Clave incorrecta');
     }
   }
@@ -36,7 +44,7 @@ export class MantenimientoComponent {
       await this.store.save(this.config());
       alert('✅ Cambios guardados correctamente.');
       this.acceso.set(false);
-      this.clave.set('');
+      this.showMaintenanceModal.set(false); // 🔒 Cierra modal
     } catch (err) {
       console.error('❌ Error al guardar:', err);
       alert('Error al guardar los cambios.');
@@ -50,6 +58,7 @@ export class MantenimientoComponent {
     try {
       await this.store.reset();
       alert('✅ Valores restaurados.');
+      this.showMaintenanceModal.set(false); // 🔒 Cierra modal
     } catch (err) {
       console.error('❌ Error al restaurar:', err);
     }
