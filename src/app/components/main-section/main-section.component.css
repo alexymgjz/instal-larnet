@@ -1,0 +1,27 @@
+/* main-section.component.css */
+#que-es-Instal-larnet .container {
+  @apply max-w-3xl mx-auto;
+}
+
+#que-es-Instal-larnet img.illustration {
+  @apply mx-auto mb-8;
+}
+
+#que-es-Instal-larnet h2 {
+  @apply text-[55px] font-semibold text-[#4C7466] mb-6;
+}
+
+
+
+#que-es-Instal-larnet .download-buttons {
+  @apply flex justify-center space-x-4;
+}
+
+#que-es-Instal-larnet .download-buttons a {
+  @apply block;
+}
+
+#que-es-Instal-larnet .download-buttons img {
+  @apply h-12;
+}
+/* sections.component.css */

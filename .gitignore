@@ -1,0 +1,28 @@
+# ⚙️ Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ⚙️ Angular/Ionic
+.angular/
+dist/
+output/
+.tmp/
+temp/
+
+# 💻 IDEs
+.vscode/
+.idea/
+
+# ⚙️ Sistemas
+.DS_Store
+Thumbs.db
+
+# 🔒 Credenciales opcionales
+.env
+*.local
+
+# ⚙️ Compilados
+*.log
+*.cache

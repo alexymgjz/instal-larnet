@@ -1,0 +1,11 @@
+<footer *ngIf="config?.footer" class="bg-primary text-white py-6">
+    <div class="text-center text-sm space-y-1">
+        <p>{{ config.footer.text_1 }}</p>
+        <p>
+            <a href="/legal" class="underline">{{ config.footer.text_2 }}</a> ·
+            <a href="/privacidad" class="underline">{{ config.footer.text_3 }}</a>
+        </p>
+        <p>{{ config.footer.text_4 }}</p>
+    </div>
+</footer>
+

@@ -1,0 +1,112 @@
+<header class="bg-[#fff8f3] fixed top-0 w-full z-50 shadow">
+    <div class="max-w-[90vw] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-start md:items-center min-h-16">
+            <!-- Logo -->
+            <div>
+                <a href="#hero">
+                    <img class="md:w-[135px] hidden md:block" src="../../../assets/img/instal-larnet.png" alt="Instal-larnet">
+                    <img class="w-[105px] md:hidden block" src="../../../assets/img/instal-larnet.png" alt="Instal-larnet">
+                </a>
+            </div>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex space-x-6 items-center">
+                <a href="#hero" [ngClass]="activeChild === 'app-section-1' ? 'headerActive' : ''"
+                   (click)="setActiveChild('app-section-1')"
+                   class="signika font-[400] text-[17px] text-custom-text-color hover:text-custom-text-color">
+                    {{'menu.home'|translate}}
+                </a>
+                <a href="#que_hacemos" [ngClass]="activeChild === 'app-section-2' ? 'headerActive' : ''"
+                   (click)="setActiveChild('app-section-2')"
+                   class="signika font-[400] text-[17px] text-custom-text-color hover:text-custom-text-color">
+                    {{'menu.services'|translate}}
+                </a>
+                <a href="#equipo" [ngClass]="activeChild === 'app-section-3' ? 'headerActive' : ''"
+                   (click)="setActiveChild('app-section-3')"
+                   class="signika font-[400] text-[17px] text-custom-text-color hover:text-custom-text-color">
+                    {{'menu.team'|translate}}
+                </a>
+                <!-- Botón Mantenimiento (en Desktop y Mobile) -->
+                <button (click)="openMaintenanceModal()"
+                        class="signika font-[400] text-[17px] text-custom-text-color hover:text-custom-text-color">
+                    {{'menu.maintenance' | translate}}
+                </button>
+
+                <select class="bg-transparent text-custom-text-color2"
+                        [(ngModel)]="selectedLanguage"
+                        (ngModelChange)="onLanguageChange($event)">
+                    <option *ngFor="let lang of availableLanguages" [value]="lang">
+                        {{ lang | uppercase }}
+                    </option>
+                </select>
+            </nav>
+
+            <!-- Hamburger Button -->
+            <button (click)="toggleMenu()" class="text-gray-800 focus:outline-none md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor"
+                     class="w-10 h-10">
+                    <path stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <nav
+            class="md:hidden fixed top-[72px] left-0 w-full bg-[#fff8f3] shadow-md z-40 transition-all duration-300 ease-in-out"
+            [ngClass]="isMenuOpen ? 'opacity-100 visible py-6' : 'opacity-0 invisible py-0 pointer-events-none'">
+        <div class="flex flex-col items-start gap-5 px-4">
+            <a href="#hero" (click)="setActiveChild('app-section-1');toggleMenu()"
+               class="signika font-[400] text-[17px] text-custom-text-color hover:text-custom-text-color">
+                {{'menu.home' | translate}}
+            </a>
+            <a href="#que_hacemos" (click)="setActiveChild('app-section-2');toggleMenu()"
+               class="signika font-[400] text-[17px] text-custom-text-color hover:text-custom-text-color">
+                {{'menu.services' | translate}}
+            </a>
+            <a href="#equipo" (click)="setActiveChild('app-section-3');toggleMenu()"
+               class="signika font-[400] text-[17px] text-custom-text-color hover:text-custom-text-color">
+                {{'menu.team' | translate}}
+            </a>
+            <!-- Botón Mantenimiento (en Desktop y Mobile) -->
+            <button (click)="openMaintenanceModal()"
+                    class="signika font-[400] text-[17px] text-custom-text-color hover:text-custom-text-color">
+                {{'menu.maintenance' | translate}}
+            </button>
+
+            <select class="bg-transparent text-custom-text-color2"
+                    [(ngModel)]="selectedLanguage"
+                    (ngModelChange)="onLanguageChange($event)">
+                <option *ngFor="let lang of availableLanguages" [value]="lang">
+                    {{ lang | uppercase }}
+                </option>
+            </select>
+        </div>
+    </nav>
+    <!-- Modal de Mantenimiento -->
+    <div *ngIf="showMaintenanceModal"
+         class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center"
+         (click)="closeMaintenanceModal()">
+        <div class="bg-white rounded-xl shadow-xl w-max max-w-[90vw] p-6 relative max-h-[90vh] overflow-y-auto"
+             (click)="$event.stopPropagation()">
+            <button (click)="closeMaintenanceModal()"
+                    class="absolute top-2 right-2 text-gray-600 hover:text-black text-xl font-bold">
+                &times;
+            </button>
+            <h2 class="text-xl font-semibold mb-4 text-center text-custom-text-color">
+                {{ 'menu.maintenance' | translate }}
+            </h2>
+            <!-- Aquí va el contenido del modal -->
+            <div class="text-gray-700 text-sm text-center">
+                <app-mantenimiento></app-mantenimiento>.
+            </div>
+        </div>
+    </div>
+
+</header>

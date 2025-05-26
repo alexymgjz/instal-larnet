@@ -1,0 +1,121 @@
+
+
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+
+/* Basic CSS for apps built with Ionic */
+/* Optional CSS utils that can be commented out */
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+/*@import "@ionic/angular/css/palettes/dark.system.css";*/
+
+/**
+ * Bootstrap
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: Radio_Canada_Big;
+  src: url(./assets/font/Radio_Canada_Big/RadioCanadaBig-Bold.ttf);
+  font-display: swap;
+  font-weight: 700;
+}
+@font-face {
+  font-family: Radio_Canada_Big;
+  src: url(./assets/font/Radio_Canada_Big/RadioCanadaBig-Regular.ttf);
+  font-display: swap;
+  font-weight: 400;
+}
+@font-face {
+  font-family: Radio_Canada_Big;
+  src: url(./assets/font/Radio_Canada_Big/RadioCanadaBig-Medium.ttf);
+  font-display: swap;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url(./assets/font/Lato/lato-bold.ttf);
+  font-display: swap;
+  font-weight: 700;
+}
+@font-face {
+  font-family: Lato;
+  src: url(./assets/font/Lato/lato-bold.ttf);
+  font-display: swap;
+  font-weight: 600;
+}
+@font-face {
+  font-family: Lato;
+  src: url(assets/font/Lato/lato-Regular.ttf);
+  font-display: swap;
+  font-weight: 500;
+}
+@font-face {
+  font-family: Lato;
+  src: url(assets/font/Lato/lato-Regular.ttf);
+  font-display: swap;
+  font-weight: 400;
+}
+
+.Radio_Canada_Big {
+font-family: Radio_Canada_Big, serif;
+  line-height: 1.2;
+}
+
+.lato{
+  font-family: Lato, serif;
+}
+
+.headerActive{
+  color: #FF6946;
+}
+html {
+  scroll-behavior: smooth;
+}
+.slide { text-align: center; }
+
+ul {
+  list-style-type: disc; /* Tipo de marcador */
+  font-size: 24px!important; /* Tamaño del marcador y el texto */
+}
+li {
+  line-height: 1.5;
+}
+/* Custom animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.7s forwards;
+}

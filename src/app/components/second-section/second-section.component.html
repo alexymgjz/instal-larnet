@@ -1,0 +1,13 @@
+<section id="services" *ngIf="config?.section_services" class="py-16 bg-white">
+    <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold">{{ config.section_services.title }}</h2>
+        <p class="text-gray-600 mt-2">{{ config.section_services.description }}</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div *ngFor="let item of config.section_services.items" class="bg-gray-50 p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold">{{ item.title }}</h3>
+            <p class="text-gray-600 mt-2">{{ item.description }}</p>
+        </div>
+    </div>
+</section>

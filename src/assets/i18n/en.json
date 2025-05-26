@@ -1,0 +1,68 @@
+{
+  "menu": {
+    "home": "What is Instal-larnet?",
+    "services": "What do we do?",
+    "team": "Who are we?"
+  },
+  "section_1": {
+    "text_1": "The menopause in your hands.",
+    "text_2": "Instal-larnet is the first app dedicated to the comprehensive support of women in their transition to menopause.",
+    "text_3": "To take care of your health during <strong>perimenopause</strong>, <strong>menopause</strong>, and <strong>postmenopause</strong>",
+    "text_4": "Download our app now!",
+    "btn_1": "Download on the App Store",
+    "btn_2": "Download on Google Play"
+  },
+  "section_2": {
+    "title": "Women spend a third\nof their lives in menopause",
+    "description": "We will take care of your health during perimenopause, menopause, and postmenopause",
+    "text_header": "Instal-larnet helps you take an active role in your health by empowering you to make informed decisions.",
+    "point_detail1": "Find support from a community of women and experts",
+    "point_detail2": "Accurate and validated information about menopause",
+    "point_detail3": "Log symptoms for self-care and early detection of physical and mental health issues",
+    "point_detail4": "Personalized reports based on symptom monitoring and tracking",
+    "point_detail5": "Assistance and therapy with healthcare professionals",
+    "tracker_title": "Tracker",
+    "tracker_description": "Experiences some symptoms\nof menopause",
+    "community_title": "Community",
+    "community_description": "Sees their quality of life\nimpacted",
+    "menopedia_title": "Menopedia",
+    "menopedia_description": "Feels isolated while also\nfeeling worried",
+    "description_menopause": "Lacks knowledge\nabout menopause"
+  },
+  "section_3": {
+    "text_1": "We accompany women during their menopausal transition by providing tools for symptom control, tracking, and monitoring; general information about the physiological process, as well as specific treatments and programs to improve coping with these symptoms.",
+    "text_3": "What do we do at Instal-larnet?",
+    "list_item_1": "Community",
+    "list_item_1sub": "A safe and trustworthy space for connection, support, and companionship.",
+    "list_item_2": "Tracking",
+    "list_item_2sub": "A tool to log the evolution of physical and mental health symptoms.",
+    "list_item_3": "Courses and programs",
+    "list_item_3sub": "A learning bank to help you understand\nwhat is happening in your body.",
+    "list_item_4": "Your profile",
+    "list_item_4sub": "Records of your stages, symptoms, and moods\nfor personalized tracking."
+  },
+  "section_team": {
+    "text_1": "The people behind Instal-larnet",
+    "text_2": "Behind KALA is a multidisciplinary team of experts in women's health, ready to assist and support women through their climacteric transition.",
+    "text_3": "A space where you can get informed, express yourself, and find support with safety, understanding, and empowerment. A place to break all the taboos surrounding emotions and mental health during this stage.",
+    "text_4": "We wanted to create a space where you can get informed, express yourself, and find support with safety, understanding, and empowerment. A place to break all the taboos surrounding this stage.",
+    "text_5": "We believe menopause should be a shared journey, with care and community. Women’s health will no longer be a silenced topic.",
+    "text_6": "From today, KALA is here!"
+  },
+  "section_download": {
+    "text_1": "Thank you for visiting me",
+    "text_2": "I hope to see you soon",
+    "text_3": "Instal-larnet with You",
+    "text_4": "Now available on iOS and Android!"
+  },
+  "footer": {
+    "text_1": "Available on",
+    "text_2": "Legal Notice",
+    "text_21": "Privacy Policy",
+    "text_3": "Terms and Conditions",
+    "text_4": "Contact",
+    "text_5": "Copyright © 2023 Instal-larnet with You",
+    "text_6": "Follow us on social media"
+  }
+}
+
