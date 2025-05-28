@@ -1,29 +1,26 @@
 import { Component, inject, signal, computed } from '@angular/core';
 import * as bcrypt from 'bcryptjs';
 import { ConfigStoreService } from '../../services/config-store.service';
-import { ConfigSchema } from '../../services/config.schema';
-import {NgClass, NgForOf, NgIf} from "@angular/common";
-import {UiStateService} from "../../services/UiStateService";
-import {FormsModule} from "@angular/forms";
+import { NgForOf, NgIf } from "@angular/common";
+import { UiStateService } from "../../services/UiStateService";
+import { FormsModule } from "@angular/forms";
 
 @Component({
   selector: 'app-mantenimiento',
   standalone: true,
   templateUrl: './mantenimiento.component.html',
-  imports: [
-    NgIf,
-    NgForOf,
-    FormsModule
-  ]
+  imports: [NgIf, NgForOf, FormsModule]
 })
 export class MantenimientoComponent {
 
-  private ui = inject(UiStateService);
+  private readonly ui = inject(UiStateService);
+  private readonly store = inject(ConfigStoreService);
+
   showMaintenanceModal = this.ui.showMaintenanceModal;
-  private store = inject(ConfigStoreService);
   acceso = signal(false);
   password = '';
-  password_hashed = '$2a$12$Fd8V6dnDyavSej8fX33dsu6mMvOAmpUdn.i3vXx0R2sQfQlqTM9Ii'
+  private readonly passwordHashed = '$2a$12$Fd8V6dnDyavSej8fX33dsu6mMvOAmpUdn.i3vXx0R2sQfQlqTM9Ii';
+
   config = computed(() => this.store.config());
 
   async ngOnInit() {
@@ -32,9 +29,10 @@ export class MantenimientoComponent {
     console.log('✅ Configuración cargada correctamente:', this.store.current);
   }
 
-
   verificarClave() {
-    this.acceso.set(bcrypt.compareSync(this.password, this.password_hashed));if (!this.acceso()) {
+    const esValida = bcrypt.compareSync(this.password, this.passwordHashed);
+    this.acceso.set(esValida);
+    if (!esValida) {
       alert('❌ Clave incorrecta');
     }
   }
@@ -44,7 +42,7 @@ export class MantenimientoComponent {
       await this.store.save(this.config());
       alert('✅ Cambios guardados correctamente.');
       this.acceso.set(false);
-      this.showMaintenanceModal.set(false); // 🔒 Cierra modal
+      this.showMaintenanceModal.set(false);
     } catch (err) {
       console.error('❌ Error al guardar:', err);
       alert('Error al guardar los cambios.');
@@ -52,20 +50,18 @@ export class MantenimientoComponent {
   }
 
   async resetConfig() {
-    const confirmar = confirm('¿Deseas restaurar los valores por defecto?');
-    if (!confirmar) return;
-
+    if (!confirm('¿Deseas restaurar los valores por defecto?')) return;
     try {
       await this.store.reset();
       alert('✅ Valores restaurados.');
-      this.showMaintenanceModal.set(false); // 🔒 Cierra modal
+      this.showMaintenanceModal.set(false);
     } catch (err) {
       console.error('❌ Error al restaurar:', err);
     }
   }
 
   addHeroButton() {
-    const updated: ConfigSchema = structuredClone(this.config());
+    const updated = structuredClone(this.config());
     updated.section_hero.buttons.push({
       text: 'Nuevo botón',
       link: '#',
@@ -76,13 +72,13 @@ export class MantenimientoComponent {
   }
 
   removeHeroButton(index: number) {
-    const updated: ConfigSchema = structuredClone(this.config());
+    const updated = structuredClone(this.config());
     updated.section_hero.buttons.splice(index, 1);
     this.store.setConfig(updated);
   }
 
   updateConfigAt(path: (string | number)[], value: any): void {
-    const updated: ConfigSchema = structuredClone(this.config());
+    const updated = structuredClone(this.config());
     let ref: any = updated;
 
     for (let i = 0; i < path.length - 1; i++) {

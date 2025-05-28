@@ -14,31 +14,32 @@
                 <a href="#hero" [ngClass]="activeChild === 'app-section-1' ? 'headerActive' : ''"
                    (click)="setActiveChild('app-section-1')"
                    class="signika font-[400] text-[17px] text-custom-text-color hover:text-custom-text-color">
-                    {{'menu.home'|translate}}
+                    {{'section_header.menu.home'|translate}}
                 </a>
-                <a href="#que_hacemos" [ngClass]="activeChild === 'app-section-2' ? 'headerActive' : ''"
+                <a href="#services" [ngClass]="activeChild === 'app-section-2' ? 'headerActive' : ''"
                    (click)="setActiveChild('app-section-2')"
                    class="signika font-[400] text-[17px] text-custom-text-color hover:text-custom-text-color">
-                    {{'menu.services'|translate}}
+                    {{'section_header.menu.services'|translate}}
                 </a>
                 <a href="#equipo" [ngClass]="activeChild === 'app-section-3' ? 'headerActive' : ''"
                    (click)="setActiveChild('app-section-3')"
                    class="signika font-[400] text-[17px] text-custom-text-color hover:text-custom-text-color">
-                    {{'menu.team'|translate}}
+                    {{'section_header.menu.team'|translate}}
                 </a>
                 <!-- Botón Mantenimiento (en Desktop y Mobile) -->
                 <button (click)="openMaintenanceModal()"
                         class="signika font-[400] text-[17px] text-custom-text-color hover:text-custom-text-color">
-                    {{'menu.maintenance' | translate}}
+                    {{'section_header.menu.maintenance' | translate}}
                 </button>
 
-                <select class="bg-transparent text-custom-text-color2"
-                        [(ngModel)]="selectedLanguage"
-                        (ngModelChange)="onLanguageChange($event)">
+                <select
+                        class="bg-transparent text-custom-text-color2"
+                        [formControl]="languageControl">
                     <option *ngFor="let lang of availableLanguages" [value]="lang">
                         {{ lang | uppercase }}
                     </option>
                 </select>
+
             </nav>
 
             <!-- Hamburger Button -->
@@ -64,20 +65,20 @@
         <div class="flex flex-col items-start gap-5 px-4">
             <a href="#hero" (click)="setActiveChild('app-section-1');toggleMenu()"
                class="signika font-[400] text-[17px] text-custom-text-color hover:text-custom-text-color">
-                {{'menu.home' | translate}}
+                {{ getMenuText() }}
             </a>
-            <a href="#que_hacemos" (click)="setActiveChild('app-section-2');toggleMenu()"
+            <a href="#services" (click)="setActiveChild('app-section-2');toggleMenu()"
                class="signika font-[400] text-[17px] text-custom-text-color hover:text-custom-text-color">
-                {{'menu.services' | translate}}
+                {{'section_header.menu.services' | translate}}
             </a>
             <a href="#equipo" (click)="setActiveChild('app-section-3');toggleMenu()"
                class="signika font-[400] text-[17px] text-custom-text-color hover:text-custom-text-color">
-                {{'menu.team' | translate}}
+                {{'section_header.menu.team' | translate}}
             </a>
             <!-- Botón Mantenimiento (en Desktop y Mobile) -->
             <button (click)="openMaintenanceModal()"
                     class="signika font-[400] text-[17px] text-custom-text-color hover:text-custom-text-color">
-                {{'menu.maintenance' | translate}}
+                {{'section_header.menu.maintenance' | translate}}
             </button>
 
             <select class="bg-transparent text-custom-text-color2"
@@ -100,7 +101,7 @@
                 &times;
             </button>
             <h2 class="text-xl font-semibold mb-4 text-center text-custom-text-color">
-                {{ 'menu.maintenance' | translate }}
+                {{ 'section_header.menu.maintenance' | translate }}
             </h2>
             <!-- Aquí va el contenido del modal -->
             <div class="text-gray-700 text-sm text-center">

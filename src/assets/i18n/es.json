@@ -1,101 +1,67 @@
 {
-  "menu": {
-    "home": "Inicio",
-    "services": "Servicios",
-    "team": "Equipo",
-    "maintenance": "Mantenimiento"
+  "section_header": {
+    "menu": {
+      "home": "Inicio",
+      "services": "Servicios",
+      "team": "Equipo",
+      "maintenance": "Mantenimiento"
+    }
   },
   "section_hero": {
-    "visible": true,
-    "background": {
-      "color": "#fffaf7",
-      "image": "assets/img/main-bg.svg",
-      "position": "bottom right",
-      "size": "83%",
-      "repeat": "no-repeat"
-    },
-    "headline": {
-      "text": "Conectando Tarragona con Fibra Óptica de Alta Velocidad",
-      "font": "Radio_Canada_Big",
-      "weight": "700",
-      "textColor": "text-custom-text-color",
-      "animationDelay": "0.5s",
-      "fontSize": "clamp(2.1875rem, 1.7153rem + 2.2222vw, 3.4375rem)"
-    },
-    "subheadline": {
-      "text": "Expertos en instalación de redes de fibra para hogares y empresas.",
-      "font": "lato",
-      "weight": "400",
-      "textColor": "text-custom-text-color",
-      "animationDelay": "0.9s",
-      "fontSize": "clamp(1.25rem, 1.1556rem + 0.4444vw, 1.5rem)"
-    },
-    "buttons": [
-      {
-        "text": "Solicita tu Presupuesto",
+    "headline":  "Conectamos tu mundo. Climatizamos tu espacio.",
+    "subheadline": "Soluciones profesionales en instalación y mantenimiento de fibra óptica y sistemas de climatización.",
+    "buttons": {
+        "text": "Solicita tu presupuesto gratis",
         "link": "#contacto",
         "bgColor": "bg-accent",
         "textColor": "text-white"
+      }
+    },
+  "section_about": {
+    "title": "Quiénes Somos",
+    "description": "Contamos con un equipo técnico altamente capacitado en redes de telecomunicaciones y sistemas de climatización. Nuestro compromiso es brindar soluciones eficientes, seguras y duraderas tanto en la instalación como en el mantenimiento de redes de fibra óptica y equipos de climatización industrial y doméstica."
+  },
+  "section_services": {
+    "title": "Nuestros Servicios",
+    "services": [
+      {
+        "category": "Instalación y Mantenimiento de Fibra Óptica",
+        "items": {
+          "item_1": "Tendidos y canalizaciones de redes FTTH",
+          "item_2": "Fusión de fibra y certificación de enlaces",
+          "item_3": "Diagnóstico y reparación de fallos en la red",
+          "item_4": "Soporte para hogares, edificios y empresas"
+        }
       },
       {
-        "text": "Contáctanos",
-        "link": "tel:+34666666666",
-        "bgColor": "bg-secondary",
-        "textColor": "text-white"
+        "category": "Instalación y Mantenimiento de Equipos de Climatización",
+        "items": {
+          "item_1": "Montaje de aires acondicionados tipo split, multisplit y sistemas VRV",
+          "item_2": "Carga de gas, limpieza de filtros y revisión de funcionamiento",
+          "item_3": "Mantenimiento preventivo y correctivo",
+          "item_4": "Instalación adaptada a espacios residenciales e industriales"
+        }
       }
     ]
   },
-
-  "section_2": {
-    "title": "Las mujeres pasan un tercio\nde sus vidas en menopausia",
-    "description": "Cuidaremos de tu salud en la perimenopausia, menopausia y postmenopausia",
-    "text_header": "Instal-larnet te ayuda a tomar un papel activo en tu salud ayudándote a tomar decisiones informadas.",
-    "point_detail1": "Encuentra el apoyo de una comunidad de mujeres y expertas",
-    "point_detail2": "Información con contenido veraz y validado sobre la menopausia",
-    "point_detail3": "Registrar síntomas para el autocuidado y detección precoz de problemas de salud física y mental",
-    "point_detail4": "Reportes personalizados basados \u200B\u200Ben monitorización y seguimiento de síntomas.",
-    "point_detail5": "Asistencia y terapia con profesionales sanitarios",
-    "tracker_title": "Tracker",
-    "tracker_description": "Sufre algún síntoma\nde la menopausia",
-    "community_title": "Comunidad",
-    "community_description": "Ve afectada\nsu calidad de vida",
-    "menopedia_title": "Menopedia",
-    "menopedia_description": "Se siente aislada a la vez\nque preocupada",
-    "description_menopause": "Desconoce saber\nsobre la menopausia"
-  },
-  "section_3": {
-      "text_1": "Acompañamos a las mujeres en la transición menopáusica a través de la facilitación de herramientas para el control, seguimiento y monitoreo de síntomas; información general relativa al proceso fisiológico, así como tratamientos y programas específicos para mejorar la convivencia con estos síntomas.",
-      "text_3": "¿Qué hacemos en Instal-larnet?",
-      "list_item_1": "Comunidad",
-      "list_item_1sub": "Espacio seguro y de confianza para el encuentro, acompañamiento y convivencia.",
-      "list_item_2": "Seguimiento",
-      "list_item_2sub": "Herramienta que ayuda a registrar la evolución de\nlos síntomas de salud física y mental.",
-      "list_item_3": "Cursos y programas",
-      "list_item_3sub": "Banco de aprendizaje para ayudar a comprender lo\nque está sucediendo en tu cuerpo.",
-      "list_item_4": "Tu perfil",
-      "list_item_4sub": "Registro de tus etapas, síntomas y estados de ánimos\npara llevar un control personalizado."
-  },
-  "section_team": {"text_1": "Las personas detrás de Instal-larnet",
-    "text_2": "Detrás de Instal-larnet se encuentra un equipo multidisciplinario de expertos en salud femenina dispuestos a asistir y acompañar a las mujeres en su transición climatérica.\n",
-    "text_3": "Un espacio donde poder informarte, expresarte y apoyarte con seguridad, desde la comprensión y el empoderamiento. Un lugar, donde romper todos los tabúes que envuelven a las emociones y a la salud mental en esta etapa",
-    "text_4": "Hemos querido crear un espacio donde poder informarte, expresarte y apoyarte con seguridad, desde la comprensión y el empoderamiento. Un lugar, donde romper todos los tabúes que envuelven esta etapa.",
-    "text_5": "Creemos que la menopausia debe ser un viaje compartido, cuidado y en comunidad. Así, la salud de mujeres ya no será un tema silenciado.",
-    "text_6": "A partir de hoy, ¡Instal-larnet está aquí!"
-  },
-  "section_download": {
-      "text_1": "Gracias por visitarme",
-      "text_2": "Espero verte pronto",
-      "text_3": "Instal-larnet Contigo",
-      "text_4": "¡Ya disponible en IOS y Android!"
+  "section_why_us": {
+    "title": "¿Por qué elegirnos?",
+    "reasons": {
+      "reason_1": "✔️ Experiencia comprobada: Más de [X] años brindando soluciones en telecomunicaciones y climatización",
+      "reason_2": "✔️ Técnicos certificados: Personal cualificado con formación continua en nuevas tecnologías",
+      "reason_3": "✔️ Calidad garantizada: Trabajamos con equipos y materiales de primera línea",
+      "reason_4": "✔️ Atención personalizada: Nos adaptamos a las necesidades específicas de cada cliente",
+      "reason_5": "✔️ Cumplimiento y puntualidad: Valoramos tu tiempo y entregamos en los plazos acordados"
+    }
   },
   "footer": {
-      "text_1": "Disponible en",
-      "text_2": "Aviso legal",
-      "text_21": "Política de Privacidad",
-      "text_3": "Términos y Condiciones",
-      "text_4": "Contacto",
-      "text_5": "Copyright © 2023 Instal-larnet Contigo",
-      "text_6": "Síguenos en nuestras redes"
+    "text_1": "Disponible en",
+    "text_2": "Aviso legal",
+    "text_21": "Política de Privacidad",
+    "text_3": "Términos y Condiciones",
+    "text_4": "Contacto",
+    "text_5": "Copyright © 2023 Instal-larnet Contigo",
+    "text_6": "Síguenos en nuestras redes"
   }
 }
 

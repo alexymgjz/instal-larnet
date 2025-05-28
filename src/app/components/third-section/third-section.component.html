@@ -1,26 +1,26 @@
-<section id="contact" *ngIf="config?.section_contact" class="py-16 bg-gray-100">
+<section id="equipo" *ngIf="config?.section_equipo" class="py-16 bg-gray-100">
     <div class="text-center mb-8">
-        <h2 class="text-3xl font-bold">{{ config.section_contact.title }}</h2>
-        <p class="text-gray-600">{{ config.section_contact.description }}</p>
+        <h2 class="text-3xl font-bold">{{ config.section_equipo.title }}</h2>
+        <p class="text-gray-600">{{ config.section_equipo.description }}</p>
     </div>
 
     <div class="max-w-xl mx-auto space-y-4">
         <p>
-            <strong>{{ config.section_contact.phoneLabel }}:</strong>
-            {{ config.section_contact.phoneValue }}
+            <strong>{{ config.section_equipo.phoneLabel }}:</strong>
+            {{ config.section_equipo.phoneValue }}
         </p>
         <p>
-            <strong>{{ config.section_contact.emailLabel }}:</strong>
-            {{ config.section_contact.emailValue }}
+            <strong>{{ config.section_equipo.emailLabel }}:</strong>
+            {{ config.section_equipo.emailValue }}
         </p>
 
         <form class="space-y-4">
             <input type="text" class="w-full border p-2 rounded"
-                   [placeholder]="config.section_contact.form.nameLabel" />
+                   [placeholder]="config.section_equipo.form.nameLabel" />
             <textarea rows="5" class="w-full border p-2 rounded"
-                      [placeholder]="config.section_contact.form.messageLabel"></textarea>
+                      [placeholder]="config.section_equipo.form.messageLabel"></textarea>
             <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">
-                {{ config.section_contact.form.sendButton }}
+                {{ config.section_equipo.form.sendButton }}
             </button>
         </form>
     </div>

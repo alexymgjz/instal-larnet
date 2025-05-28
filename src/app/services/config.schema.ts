@@ -4,7 +4,12 @@ export interface Branding {
     fontFamily: string;
     logo: string;
 }
-
+export interface SectionHeader {
+    home: string;
+    services: string;
+    team: string;
+    maintenance: string;
+}
 export interface HeroButton {
     text: string;
     link: string;
@@ -69,8 +74,9 @@ export interface Footer {
 
 export interface ConfigSchema {
     branding: Branding;
+    section_header: SectionHeader;
     section_hero: SectionHero;
     section_services: SectionServices;
     section_contact: SectionContact;
-    footer: Footer;
+    section_footer: Footer;
 }

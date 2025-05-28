@@ -1,34 +1,42 @@
 import { Injectable, inject } from '@angular/core';
 import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
-import { DEFAULT_CONFIG } from '../config/default-config';
 import { ConfigSchema } from './config.schema';
+import { LanguageService } from './language.service';
+import { LANGUAGE_CONFIG } from '../config/default-config';
 
 @Injectable({ providedIn: 'root' })
 export class ConfigService {
+    private languageService = inject(LanguageService);
     private firestore = inject(Firestore);
-    private readonly docPath = 'ajustesWeb/principal';
+
+    private getDocPathForLang(lang: string): string {
+        return `ajustesWeb/${lang}`;
+    }
 
     async getConfig(): Promise<ConfigSchema> {
-        const ref = doc(this.firestore, this.docPath);
+        const lang = this.languageService.language() ?? 'es';
+        const ref = doc(this.firestore, this.getDocPathForLang(lang));
         const snap = await getDoc(ref);
 
         if (snap.exists()) {
-            console.log('✅ Documento Firestore encontrado');
+            console.log(`✅ Documento Firestore encontrado para idioma ${lang}`);
             return snap.data() as ConfigSchema;
         } else {
-            console.warn('⚠️ Documento no encontrado. Guardando DEFAULT_CONFIG');
-            await setDoc(ref, DEFAULT_CONFIG);  // 🔁 Se guarda el default si no hay nada
-            return DEFAULT_CONFIG;
+            console.warn(`⚠️ Documento no encontrado para ${lang}. Guardando DEFAULT_CONFIG`);
+            await setDoc(ref, LANGUAGE_CONFIG[lang]);
+            return LANGUAGE_CONFIG[lang];
         }
     }
 
     async saveConfig(config: ConfigSchema): Promise<void> {
-        const ref = doc(this.firestore, this.docPath);
+        const lang = this.languageService.language() ?? 'es';
+        const ref = doc(this.firestore, this.getDocPathForLang(lang));
         await setDoc(ref, config, { merge: true });
     }
 
     async resetConfig(): Promise<void> {
-        const ref = doc(this.firestore, this.docPath);
-        await setDoc(ref, DEFAULT_CONFIG, { merge: false });
+        const lang = this.languageService.language() ?? 'es';
+        const ref = doc(this.firestore, this.getDocPathForLang(lang));
+        await setDoc(ref, LANGUAGE_CONFIG[lang], { merge: false });
     }
 }

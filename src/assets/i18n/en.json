@@ -1,68 +1,90 @@
 {
-  "menu": {
-    "home": "What is Instal-larnet?",
-    "services": "What do we do?",
-    "team": "Who are we?"
+  "section_header": {
+    "menu": {
+      "home": "Home",
+      "services": "Services",
+      "team": "Team",
+      "maintenance": "Maintenance"
+    }
   },
-  "section_1": {
-    "text_1": "The menopause in your hands.",
-    "text_2": "Instal-larnet is the first app dedicated to the comprehensive support of women in their transition to menopause.",
-    "text_3": "To take care of your health during <strong>perimenopause</strong>, <strong>menopause</strong>, and <strong>postmenopause</strong>",
-    "text_4": "Download our app now!",
-    "btn_1": "Download on the App Store",
-    "btn_2": "Download on Google Play"
+  "section_hero": {
+    "visible": true,
+    "background": {
+      "color": "#fffaf7",
+      "image": "assets/img/main-bg.svg",
+      "position": "bottom right",
+      "size": "83%",
+      "repeat": "no-repeat"
+    },
+    "headline": {
+      "text": "We connect your world. We climatize your space.",
+      "font": "Radio_Canada_Big",
+      "weight": "700",
+      "textColor": "text-custom-text-color",
+      "animationDelay": "0.5s",
+      "fontSize": "clamp(2.1875rem, 1.7153rem + 2.2222vw, 3.4375rem)"
+    },
+    "subheadline": {
+      "text": "Professional solutions in fiber optic installation and maintenance, and air conditioning systems.",
+      "font": "lato",
+      "weight": "400",
+      "textColor": "text-custom-text-color",
+      "animationDelay": "0.9s",
+      "fontSize": "clamp(1.25rem, 1.1556rem + 0.4444vw, 1.5rem)"
+    },
+    "buttons": [
+      {
+        "text": "Request your free quote",
+        "link": "#contact",
+        "bgColor": "bg-accent",
+        "textColor": "text-white"
+      }
+    ]
   },
-  "section_2": {
-    "title": "Women spend a third\nof their lives in menopause",
-    "description": "We will take care of your health during perimenopause, menopause, and postmenopause",
-    "text_header": "Instal-larnet helps you take an active role in your health by empowering you to make informed decisions.",
-    "point_detail1": "Find support from a community of women and experts",
-    "point_detail2": "Accurate and validated information about menopause",
-    "point_detail3": "Log symptoms for self-care and early detection of physical and mental health issues",
-    "point_detail4": "Personalized reports based on symptom monitoring and tracking",
-    "point_detail5": "Assistance and therapy with healthcare professionals",
-    "tracker_title": "Tracker",
-    "tracker_description": "Experiences some symptoms\nof menopause",
-    "community_title": "Community",
-    "community_description": "Sees their quality of life\nimpacted",
-    "menopedia_title": "Menopedia",
-    "menopedia_description": "Feels isolated while also\nfeeling worried",
-    "description_menopause": "Lacks knowledge\nabout menopause"
+  "section_about": {
+    "title": "About Us",
+    "description": "We have a highly trained technical team in telecommunications networks and air conditioning systems. Our commitment is to provide efficient, safe, and durable solutions in the installation and maintenance of fiber optic networks and industrial and domestic air conditioning equipment."
   },
-  "section_3": {
-    "text_1": "We accompany women during their menopausal transition by providing tools for symptom control, tracking, and monitoring; general information about the physiological process, as well as specific treatments and programs to improve coping with these symptoms.",
-    "text_3": "What do we do at Instal-larnet?",
-    "list_item_1": "Community",
-    "list_item_1sub": "A safe and trustworthy space for connection, support, and companionship.",
-    "list_item_2": "Tracking",
-    "list_item_2sub": "A tool to log the evolution of physical and mental health symptoms.",
-    "list_item_3": "Courses and programs",
-    "list_item_3sub": "A learning bank to help you understand\nwhat is happening in your body.",
-    "list_item_4": "Your profile",
-    "list_item_4sub": "Records of your stages, symptoms, and moods\nfor personalized tracking."
+  "section_services": {
+    "title": "Our Services",
+    "services": [
+      {
+        "category": "Fiber Optic Installation and Maintenance",
+        "items": {
+          "item_1": "FTTH network cabling and ducting",
+          "item_2": "Fiber splicing and link certification",
+          "item_3": "Network fault diagnosis and repair",
+          "item_4": "Support for homes, buildings, and businesses"
+        }
+      },
+      {
+        "category": "Air Conditioning Equipment Installation and Maintenance",
+        "items": {
+          "item_1": "Installation of split, multisplit, and VRV air conditioning systems",
+          "item_2": "Gas charging, filter cleaning, and performance check",
+          "item_3": "Preventive and corrective maintenance",
+          "item_4": "Installation adapted to residential and industrial spaces"
+        }
+      }
+    ]
   },
-  "section_team": {
-    "text_1": "The people behind Instal-larnet",
-    "text_2": "Behind KALA is a multidisciplinary team of experts in women's health, ready to assist and support women through their climacteric transition.",
-    "text_3": "A space where you can get informed, express yourself, and find support with safety, understanding, and empowerment. A place to break all the taboos surrounding emotions and mental health during this stage.",
-    "text_4": "We wanted to create a space where you can get informed, express yourself, and find support with safety, understanding, and empowerment. A place to break all the taboos surrounding this stage.",
-    "text_5": "We believe menopause should be a shared journey, with care and community. Women’s health will no longer be a silenced topic.",
-    "text_6": "From today, KALA is here!"
-  },
-  "section_download": {
-    "text_1": "Thank you for visiting me",
-    "text_2": "I hope to see you soon",
-    "text_3": "Instal-larnet with You",
-    "text_4": "Now available on iOS and Android!"
+  "section_why_us": {
+    "title": "Why Choose Us?",
+    "reasons": {
+      "reason_1": "✔️ Proven experience: Over [X] years providing solutions in telecommunications and air conditioning",
+      "reason_2": "✔️ Certified technicians: Qualified personnel with continuous training in new technologies",
+      "reason_3": "✔️ Guaranteed quality: We work with top-quality equipment and materials",
+      "reason_4": "✔️ Personalized attention: We adapt to the specific needs of each client",
+      "reason_5": "✔️ Compliance and punctuality: We value your time and deliver on agreed deadlines"
+    }
   },
   "footer": {
-    "text_1": "Available on",
+    "text_1": "Available in",
     "text_2": "Legal Notice",
     "text_21": "Privacy Policy",
     "text_3": "Terms and Conditions",
     "text_4": "Contact",
-    "text_5": "Copyright © 2023 Instal-larnet with You",
-    "text_6": "Follow us on social media"
+    "text_5": "Copyright © 2023 Instal-larnet Contigo",
+    "text_6": "Follow us on our social networks"
   }
 }
-

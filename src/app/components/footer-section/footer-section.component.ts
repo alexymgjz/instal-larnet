@@ -7,7 +7,6 @@ import {ConfigService} from "../../services/config.service";
   selector: 'app-footer-section',
     imports: [
         TranslateModule,
-        NgIf
     ],
   templateUrl: './footer-section.component.html',
   styleUrl: './footer-section.component.css'

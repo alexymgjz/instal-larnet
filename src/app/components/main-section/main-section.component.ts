@@ -1,4 +1,4 @@
-import {Component, computed, effect, HostListener, inject, OnInit, signal} from '@angular/core';
+import {Component, computed, effect, HostListener, inject, OnInit, Signal, signal} from '@angular/core';
 import {TranslateModule} from "@ngx-translate/core";
 import {NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {ConfigStoreService} from "../../services/config-store.service";
@@ -30,34 +30,39 @@ export class MainSectionComponent implements OnInit {
   private languageService = inject(LanguageService);
   private configStore = inject(ConfigStoreService);
 
-  config = computed(() => this.configStore.config());
 
-  currentLang = signal('es');
   translatedTexts = signal<{ headline: string; subheadline: string; buttons: string[] }>({
     headline: '',
     subheadline: '',
     buttons: []
   });
 
- async ngOnInit() {
-    await this.configStore.load();
-    const activeLang = await this.languageService.getActiveLanguage();
-    this.currentLang.set(activeLang ?? 'es');
+    readonly currentLang = signal('es');
+    readonly config = computed(() => this.configStore.config());
 
-    effect(() => {
-      const lang = this.currentLang();
-      if (lang !== 'es') {
-        this.generateTranslations(lang);
-      }
-    });
+    async ngOnInit() {
+        // cargar configuración inicial
+        await this.configStore.load();
 
-    this.languageService.language$.subscribe((lang) => {
-      this.currentLang.set(lang);
-    });
-  }
+        // sincronizar currentLang con LanguageService
+        effect(() => {
+            const lang = this.languageService.language();
+            this.currentLang.set(lang);
+        });
+
+        // traducir dinámicamente si cambia el idioma y no es español
+        effect(() => {
+            const lang = this.currentLang();
+            if (lang !== 'es') {
+                this.generateTranslations(lang);
+            }
+        });
+    }
+
 
   private async generateTranslations(lang: string) {
     const config = this.config();
+    console.log('tytyyt' + config);
     const section = config.section_hero;
 
     const [headline, subheadline, ...buttons] = await Promise.all([
