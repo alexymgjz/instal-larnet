@@ -7,7 +7,8 @@ import {NgIf} from "@angular/common";
     NgIf
   ],
   templateUrl: './whatsapp-widget.component.html',
-  styleUrl: './whatsapp-widget.component.css'
+  styleUrl: './whatsapp-widget.component.css',
+  standalone: true,
 })
 export class WhatsappWidgetComponent {
   isOpen = false;
