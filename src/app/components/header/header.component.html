@@ -81,9 +81,9 @@
                 {{'section_header.menu.maintenance' | translate}}
             </button>
 
-            <select class="bg-transparent text-custom-text-color2"
-                    [(ngModel)]="selectedLanguage"
-                    (ngModelChange)="onLanguageChange($event)">
+            <select
+                    class="bg-transparent text-custom-text-color2"
+                    [formControl]="languageControl">
                 <option *ngFor="let lang of availableLanguages" [value]="lang">
                     {{ lang | uppercase }}
                 </option>
