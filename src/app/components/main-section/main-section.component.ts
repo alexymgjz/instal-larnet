@@ -4,7 +4,6 @@ import {NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {ConfigStoreService} from "../../services/config-store.service";
 import {LanguageService} from "../../services/language.service";
 import {translateText} from "../../utils/libretranslate";
-import {ConfigSchema} from "../../services/config.schema";
 
 @Component({
   selector: 'app-main-section',
@@ -62,7 +61,6 @@ export class MainSectionComponent implements OnInit {
 
   private async generateTranslations(lang: string) {
     const config = this.config();
-    console.log('tytyyt' + config);
     const section = config.section_hero;
 
     const [headline, subheadline, ...buttons] = await Promise.all([

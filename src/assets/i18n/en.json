@@ -20,7 +20,7 @@
       "text": "We connect your world. We climatize your space.",
       "font": "Radio_Canada_Big",
       "weight": "700",
-      "textColor": "text-custom-text-color",
+      "textColor": "text-white",
       "animationDelay": "0.5s",
       "fontSize": "clamp(2.1875rem, 1.7153rem + 2.2222vw, 3.4375rem)"
     },
@@ -28,7 +28,7 @@
       "text": "Professional solutions in fiber optic installation and maintenance, and air conditioning systems.",
       "font": "lato",
       "weight": "400",
-      "textColor": "text-custom-text-color",
+      "textColor": "text-white",
       "animationDelay": "0.9s",
       "fontSize": "clamp(1.25rem, 1.1556rem + 0.4444vw, 1.5rem)"
     },

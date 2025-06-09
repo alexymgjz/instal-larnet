@@ -18,7 +18,7 @@ export class WhatsappWidgetComponent {
   }
 
   get whatsappLink(): string {
-    const phone = '34653539081'; // Sin +
+    const phone = '34624428490'; // Sin +
     const message = encodeURIComponent('Hola, me gustaría más información');
     return `https://wa.me/${phone}?text=${message}`;
   }
