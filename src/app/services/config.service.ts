@@ -15,6 +15,9 @@ export class ConfigService {
 
     async getConfig(): Promise<ConfigSchema> {
         const lang = this.languageService.language() ?? 'es';
+        const fallback = LANGUAGE_CONFIG['es'];
+        const config = LANGUAGE_CONFIG[lang] ?? fallback;
+
         const ref = doc(this.firestore, this.getDocPathForLang(lang));
         const snap = await getDoc(ref);
 
@@ -22,9 +25,9 @@ export class ConfigService {
             console.log(`✅ Documento Firestore encontrado para idioma ${lang}`);
             return snap.data() as ConfigSchema;
         } else {
-            console.warn(`⚠️ Documento no encontrado para ${lang}. Guardando DEFAULT_CONFIG`);
-            await setDoc(ref, LANGUAGE_CONFIG[lang]);
-            return LANGUAGE_CONFIG[lang];
+            console.warn(`⚠️ Documento no encontrado para ${lang}. Guardando configuración por defecto`);
+            await setDoc(ref, config);
+            return config;
         }
     }
 

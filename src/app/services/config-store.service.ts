@@ -10,47 +10,75 @@ export class ConfigStoreService {
     private readonly configService = inject(ConfigService);
 
     private readonly configSignal: WritableSignal<ConfigSchema> = signal(
-        LANGUAGE_CONFIG['es'] // idioma por defecto
+        LANGUAGE_CONFIG['es']
     );
 
     readonly config = computed(() => this.configSignal());
     current: ConfigSchema = LANGUAGE_CONFIG['es'];
 
     constructor() {
-        // reactivo al cambio de idioma
         effect(() => {
             const lang = this.languageService.language();
+            if (this.wasLoadedFromRemote(lang)) return;
+
             const fallback = LANGUAGE_CONFIG['es'];
-            const configByLang = LANGUAGE_CONFIG[lang] ?? fallback;
-            this.configSignal.set(configByLang);
-            this.current = configByLang;
+            const defaultConfig = LANGUAGE_CONFIG[lang] ?? fallback;
+
+            this.configSignal.set(defaultConfig);
+            this.current = defaultConfig;
         });
     }
 
-    async load() {
+    async load(): Promise<void> {
+        const lang = this.languageService.language();
         const remote = await this.configService.getConfig();
-        this.current = remote && Object.keys(remote).length > 0
+
+        const loaded = remote && Object.keys(remote).length > 0
             ? remote
-            : LANGUAGE_CONFIG[this.languageService.language()] ?? LANGUAGE_CONFIG['es'];
-        this.configSignal.set(this.current);
+            : LANGUAGE_CONFIG[lang] ?? LANGUAGE_CONFIG['es'];
+
+        this.configSignal.set(loaded);
+        this.current = loaded;
+        this.markAsLoadedFromRemote(lang);
     }
 
-    async save(newConfig: ConfigSchema) {
+    async save(newConfig: ConfigSchema): Promise<void> {
         await this.configService.saveConfig(newConfig);
         this.configSignal.set(newConfig);
         this.current = newConfig;
     }
 
-    async reset() {
+    async reset(): Promise<void> {
         const lang = this.languageService.language();
         await this.configService.resetConfig();
+
         const resetConfig = LANGUAGE_CONFIG[lang] ?? LANGUAGE_CONFIG['es'];
         this.configSignal.set(resetConfig);
         this.current = resetConfig;
+
+        this.clearLoadedFromRemote(lang);
     }
 
-    setConfig(newConfig: ConfigSchema) {
+    setConfig(newConfig: ConfigSchema): void {
         this.configSignal.set(newConfig);
         this.current = newConfig;
     }
+
+    // 🔽 Helpers de persistencia (localStorage)
+    private getStorageKey(lang: string): string {
+        return `config_loaded_${lang}`;
+    }
+
+    private markAsLoadedFromRemote(lang: string): void {
+        localStorage.setItem(this.getStorageKey(lang), 'true');
+    }
+
+    private wasLoadedFromRemote(lang: string): boolean {
+        return localStorage.getItem(this.getStorageKey(lang)) === 'true';
+    }
+
+    private clearLoadedFromRemote(lang: string): void {
+        localStorage.removeItem(this.getStorageKey(lang));
+    }
+
 }

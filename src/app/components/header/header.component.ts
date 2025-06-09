@@ -25,112 +25,108 @@ import {ConfigStoreService} from "../../services/config-store.service";
   standalone: true}
 )
 export class HeaderComponent implements OnInit {
-  activeChild: string = 'app-section-1'; // Estado para controlar qué componente hijo está activo
+  activeChild: string = 'app-section-1';
   isMenuOpen = false;
-  private ui = inject(UiStateService);
-  showMaintenanceModal = this.ui.showMaintenanceModal;
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
-  }
-  setActiveChild(child: string): void {
-    this.activeChild = child;
-  }
-
-
-  selectedLanguage: string = '';
-
-
-
-   languageControl = new FormControl('');
-   availableLanguages: string[] | undefined ;
-
-  constructor(private languageService: LanguageService) {
-    // Sincroniza el idioma actual con el formControl
-    effect(() => {
-      const currentLang = this.languageService.language();
-      if (this.languageControl.value !== currentLang) {
-        this.languageControl.setValue(currentLang, { emitEvent: false });
-      }
-    });
-
-    // Cambios del usuario → actualizan el servicio
-    this.languageControl.valueChanges.subscribe((lang) => {
-      if (lang && lang !== this.languageService.language()) {
-        this.languageService.setLanguage(lang);
-      }
-    });
-  }
-
-  ngOnInit(): void {
-    this.availableLanguages = this.languageService.getAvailableLanguages();
-
-    // Valor inicial desde signal o localStorage (según lo que uses en LanguageService)
-    const lang = this.languageService.language() ?? 'es';
-    this.selectedLanguage = lang;
-    this.languageControl.setValue(lang, { emitEvent: false });
-
-    // Actualiza el select si el idioma cambia desde otro lugar
-    effect(() => {
-      const lang = this.languageService.language();
-      if (this.languageControl.value !== lang) {
-        this.languageControl.setValue(lang, { emitEvent: false });
-      }
-    });
-
-    // Actualiza el idioma si el usuario cambia el select manualmente
-    this.languageControl.valueChanges.subscribe((newLang) => {
-      if (newLang && this.languageService.includeLanguage(newLang)) {
-        this.languageService.setLanguage(newLang);
-      }
-    });
-  }
-
-
-
-
-  isInitialized = false;
-
-
-
-  openMaintenanceModal() {
-    this.showMaintenanceModal.set(true)
-    this.isMenuOpen = false; // Cierra menú mobile si estaba abierto
-  }
-
-  closeMaintenanceModal() {
-    this.showMaintenanceModal.set(false)
-  }
-
-
-
-
   isLoading = false;
-  async onLanguageChange(lang: string) {
-    if (lang !== this.languageService.language()) {
-      this.isLoading = true;
-      this.languageService.setLanguage(lang);
-      await this.configStore.load();
-      this.selectedLanguage = lang; // ← ahora sí, después de tener todo cargado
-      this.isLoading = false;
-    }
-  }
 
+  private readonly ui = inject(UiStateService);
+  private readonly configStore = inject(ConfigStoreService);
+  private readonly languageService = inject(LanguageService);
 
+  showMaintenanceModal = this.ui.showMaintenanceModal;
 
-  private configStore = inject(ConfigStoreService);
-  readonly currentLang = signal('es');
+  languageControl = new FormControl('');
+  availableLanguages: string[] = [];
+  selectedLanguage = '';
+
   readonly config = computed(() => this.configStore.config());
+  readonly currentLang = computed(() => this.languageService.language());
 
-  translatedTexts = signal<{menu: string; services: string; team: string ; maintenance: string}>({
+  translatedTexts = signal<{ menu: string; services: string; team: string; maintenance: string }>({
     menu: '',
     services: '',
     team: '',
     maintenance: ''
   });
 
+  ngOnInit(): void {
+    this.availableLanguages = this.languageService.getAvailableLanguages();
+
+    const initialLang = this.languageService.language() ?? 'es';
+    this.languageControl.setValue(initialLang, { emitEvent: false });
+
+    // Cuando el usuario cambia manualmente el selector
+    this.languageControl.valueChanges.subscribe(async (lang) => {
+      if (!lang || lang === this.languageService.language()) return;
+
+      this.isLoading = true;
+      this.languageService.setLanguage(lang);
+      await this.configStore.load();
+      this.updateTranslatedTexts(lang); // opcional si tienes textos dinámicos
+      this.isLoading = false;
+    });
+  }
+
+  private updateTranslatedTexts(lang: string) {
+    if (lang === 'es') {
+      this.translatedTexts.set({ menu: '', services: '', team: '', maintenance: '' });
+    } else {
+      const config = this.config();
+      this.translatedTexts.set({
+        menu: config.section_header.home,
+        services: config.section_header.services,
+        team: config.section_header.team,
+        maintenance: config.section_header.maintenance
+      });
+    }
+  }
+
+
+  private async loadConfigAndTranslations(lang: string) {
+    this.isLoading = true;
+    await this.configStore.load();
+
+    if (lang !== 'es') {
+      const config = this.config();
+      this.translatedTexts.set({
+        menu: config.section_header.home,
+        services: config.section_header.services,
+        team: config.section_header.team,
+        maintenance: config.section_header.maintenance
+      });
+    } else {
+      this.translatedTexts.set({
+        menu: '',
+        services: '',
+        team: '',
+        maintenance: ''
+      });
+    }
+
+    this.selectedLanguage = lang;
+    this.isLoading = false;
+  }
+
   getMenuText(): string {
-      const lang = this.currentLang();
-      return lang === 'es' ? this.config().section_header.home : this.translatedTexts().menu;
+    const lang = this.currentLang();
+    return lang === 'es' ? this.config().section_header.home : this.translatedTexts().menu;
+  }
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  setActiveChild(child: string): void {
+    this.activeChild = child;
+  }
+
+  openMaintenanceModal(): void {
+    this.showMaintenanceModal.set(true);
+    this.isMenuOpen = false;
+  }
+
+  closeMaintenanceModal(): void {
+    this.showMaintenanceModal.set(false);
   }
 
 }

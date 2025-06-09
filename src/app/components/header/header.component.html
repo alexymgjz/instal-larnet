@@ -33,13 +33,13 @@
                 </button>
 
                 <select
-                        class="bg-transparent text-custom-text-color2"
-                        [formControl]="languageControl">
+                        [formControl]="languageControl"
+                        class="bg-transparent text-custom-text-color2 outline-none border border-white rounded px-2 py-1"
+                >
                     <option *ngFor="let lang of availableLanguages" [value]="lang">
                         {{ lang | uppercase }}
                     </option>
                 </select>
-
             </nav>
 
             <!-- Hamburger Button -->
@@ -82,12 +82,14 @@
             </button>
 
             <select
-                    class="bg-transparent text-custom-text-color2"
-                    [formControl]="languageControl">
+                    [formControl]="languageControl"
+                    class="bg-transparent text-custom-text-color2 outline-none border border-white rounded px-2 py-1"
+            >
                 <option *ngFor="let lang of availableLanguages" [value]="lang">
                     {{ lang | uppercase }}
                 </option>
             </select>
+
         </div>
     </nav>
     <!-- Modal de Mantenimiento -->
