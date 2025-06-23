@@ -1,6 +1,6 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {TranslateModule} from "@ngx-translate/core";
-import {NgForOf, NgIf} from "@angular/common";
+import {NgForOf, NgIf, NgStyle} from "@angular/common";
 import {ConfigService} from "../../services/config.service";
 
 @Component({
@@ -8,7 +8,8 @@ import {ConfigService} from "../../services/config.service";
     imports: [
         TranslateModule,
         NgForOf,
-        NgIf
+        NgIf,
+        NgStyle
     ],
   templateUrl: './second-section.component.html',
   styleUrl: './second-section.component.css'
@@ -20,4 +21,5 @@ export class SecondSectionComponent implements OnInit {
     async ngOnInit() {
         this.config = await this.configService.getConfig();
     }
+
 }

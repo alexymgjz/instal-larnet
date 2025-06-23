@@ -1,41 +1,33 @@
-<ng-container *ngIf="config().section_hero?.visible">
-    <section
-            id="hero"
-            class=" relative px-4 flex items-center justify-center min-h-[92vh]"
-
-    style="">
-
-        <div class="flex flex-col min-h-[92vh] items-center justify-center w-full md:w-[60%]">
-            <h1
-                    class="{{ config().section_hero.headline.font }} text-center md:text-start font-[{{ config().section_hero.headline.weight }}] {{ config().section_hero.headline.textColor }} mb-4 opacity-0 translate-y-8 transition-all duration-700 ease-in-out animate-fade-in"
-                    [ngStyle]="{
-          'animation-delay': config().section_hero.headline.animationDelay,
-          'font-size': config().section_hero.headline.fontSize
-        }"
-            >
-                {{ getHeadlineText() }}
-            </h1>
-
-            <p
-                    class="{{ config().section_hero.subheadline.font }} text-center md:text-start font-[{{ config().section_hero.subheadline.weight }}] {{ config().section_hero.subheadline.textColor }} mb-6 opacity-0 translate-y-8 transition-all duration-700 ease-in-out animate-fade-in"
-                    [ngStyle]="{
-          'animation-delay': config().section_hero.subheadline.animationDelay,
-          'font-size': config().section_hero.subheadline.fontSize
-        }"
-            >
-                {{ getSubheadlineText() }}
-            </p>
-
-            <div class="text-start w-full gap-2 flex flex-col md:flex-row justify-start items-center md:space-x-4">
-                <a
-                        *ngFor="let btn of config().section_hero.buttons; let i = index"
-                        [href]="btn.link"
-                        class="block hover:scale-110 transition-transform duration-300 px-5 py-3 rounded-xl shadow-md"
-                        [ngClass]="[btn.bgColor, btn.textColor]"
-                >
-                    {{ getButtonText(i) }}
-                </a>
-            </div>
-        </div>
-    </section>
-</ng-container>
+<!-- 🏠 Hero / Bienvenida -->
+<section id="hero" class="text-center flex flex-col items-center gap-10 justify-center py-32 px-4 min-h-[100vh]">
+    <h1 class="text-3xl sm:text-5xl font-bold text-white mb-4">
+        Conectamos tu mundo. Climatizamos tu espacio.
+    </h1>
+    <p class="text-lg sm:text-xl text-white mb-6">
+        Soluciones profesionales en instalación y mantenimiento de fibra óptica y sistemas de climatización.
+    </p>
+    <button class="bg-[#355375] w-max text-white px-6 py-3 rounded hover:bg-[#2c425c] transition">
+        Solicita tu presupuesto gratis
+    </button>
+</section>
+<!-- HERO / BIENVENIDA -->
+<section
+        id="hero"
+        class="bg-white text-center py-16 px-4"
+        role="region"
+        aria-labelledby="hero-title"
+>
+    <h1 id="hero-title" class="text-3xl sm:text-5xl font-bold text-gray-800 mb-4">
+        Conectamos tu mundo. Climatizamos tu espacio.
+    </h1>
+    <p class="text-lg sm:text-xl text-gray-600 mb-6">
+        Soluciones profesionales en instalación y mantenimiento de fibra óptica y sistemas de climatización.
+    </p>
+    <a
+            href="#contacto"
+            class="inline-block bg-[#355375] text-white px-6 py-3 rounded hover:bg-[#2c425c] transition"
+            rel="nofollow"
+    >
+        Solicita tu presupuesto gratis
+    </a>
+</section>

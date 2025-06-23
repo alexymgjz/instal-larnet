@@ -1,13 +1,29 @@
-<section id="services" *ngIf="config?.section_services" class="py-16 bg-white">
-    <div class="text-center mb-8">
-        <h2 class="text-3xl font-bold">{{ config.section_services.title }}</h2>
-        <p class="text-gray-600 mt-2">{{ config.section_services.description }}</p>
-    </div>
 
-    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-        <div *ngFor="let item of config.section_services.items" class="bg-gray-50 p-6 rounded-lg shadow">
-            <h3 class="text-xl font-semibold">{{ item.title }}</h3>
-            <p class="text-gray-600 mt-2">{{ item.description }}</p>
+
+<!-- 🛠️ Servicios -->
+<section id="services" class="py-16 px-4">
+    <h2 class="text-2xl sm:text-3xl font-semibold text-center text-gray-800 mb-10">Nuestros Servicios</h2>
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Fibra óptica -->
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-[#355375] mb-4">🔌 Instalación y Mantenimiento de Fibra Óptica</h3>
+            <ul class="list-disc pl-5 space-y-1 text-gray-700 text-left">
+                <li>Tendidos y canalizaciones de redes FTTH</li>
+                <li>Fusión de fibra y certificación de enlaces</li>
+                <li>Diagnóstico y reparación de fallos en la red</li>
+                <li>Soporte para hogares, edificios y empresas</li>
+            </ul>
+        </div>
+
+        <!-- Climatización -->
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-[#355375] mb-4">❄️ Instalación y Mantenimiento de Climatización</h3>
+            <ul class="list-disc pl-5 space-y-1 text-gray-700 text-left">
+                <li>Montaje de aires acondicionados split, multisplit y VRV</li>
+                <li>Carga de gas, limpieza de filtros y revisión</li>
+                <li>Mantenimiento preventivo y correctivo</li>
+                <li>Instalación para espacios residenciales e industriales</li>
+            </ul>
         </div>
     </div>
 </section>
