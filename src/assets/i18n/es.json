@@ -8,60 +8,73 @@
     }
   },
   "section_hero": {
-    "headline":  "Conectamos tu mundo. Climatizamos tu espacio.",
+    "headline": "Conectamos tu mundo. Climatizamos tu espacio.",
     "subheadline": "Soluciones profesionales en instalación y mantenimiento de fibra óptica y sistemas de climatización.",
     "buttons": {
-        "text": "Solicita tu presupuesto gratis",
-        "link": "#contacto",
-        "bgColor": "bg-accent",
-        "textColor": "text-white"
-      }
-    },
-  "section_about": {
-    "title": "Quiénes Somos",
-    "description": "Contamos con un equipo técnico altamente capacitado en redes de telecomunicaciones y sistemas de climatización. Nuestro compromiso es brindar soluciones eficientes, seguras y duraderas tanto en la instalación como en el mantenimiento de redes de fibra óptica y equipos de climatización industrial y doméstica."
+      "text": "Solicita tu presupuesto gratis",
+      "link": "#contacto",
+      "bgColor": "bg-accent",
+      "textColor": "text-white"
+    }
   },
   "section_services": {
     "title": "Nuestros Servicios",
-    "services": [
-      {
-        "category": "Instalación y Mantenimiento de Fibra Óptica",
-        "items": {
-          "item_1": "Tendidos y canalizaciones de redes FTTH",
-          "item_2": "Fusión de fibra y certificación de enlaces",
-          "item_3": "Diagnóstico y reparación de fallos en la red",
-          "item_4": "Soporte para hogares, edificios y empresas"
-        }
-      },
-      {
-        "category": "Instalación y Mantenimiento de Equipos de Climatización",
-        "items": {
-          "item_1": "Montaje de aires acondicionados tipo split, multisplit y sistemas VRV",
-          "item_2": "Carga de gas, limpieza de filtros y revisión de funcionamiento",
-          "item_3": "Mantenimiento preventivo y correctivo",
-          "item_4": "Instalación adaptada a espacios residenciales e industriales"
-        }
+    "service_Fibra": {
+      "category": "Instalación y Mantenimiento de Fibra Óptica",
+      "items": {
+        "item_1": "Tendidos y canalizaciones de redes FTTH",
+        "item_2": "Fusión de fibra y certificación de enlaces",
+        "item_3": "Diagnóstico y reparación de fallos en la red",
+        "item_4": "Soporte para hogares, edificios y empresas"
       }
-    ]
+    },
+    "service_Maintain": {
+      "category": "Instalación y Mantenimiento de Climatización",
+      "items": {
+        "item_1": "Montaje de aires acondicionados split, multisplit y VRV",
+        "item_2": "Carga de gas, limpieza de filtros y revisión",
+        "item_3": "Mantenimiento preventivo y correctivo",
+        "item_4": "Instalación para espacios residenciales e industriales"
+      }
+    }
   },
   "section_why_us": {
     "title": "¿Por qué elegirnos?",
     "reasons": {
-      "reason_1": "✔️ Experiencia comprobada: Más de [X] años brindando soluciones en telecomunicaciones y climatización",
-      "reason_2": "✔️ Técnicos certificados: Personal cualificado con formación continua en nuevas tecnologías",
-      "reason_3": "✔️ Calidad garantizada: Trabajamos con equipos y materiales de primera línea",
-      "reason_4": "✔️ Atención personalizada: Nos adaptamos a las necesidades específicas de cada cliente",
-      "reason_5": "✔️ Cumplimiento y puntualidad: Valoramos tu tiempo y entregamos en los plazos acordados"
+      "reason_1": "Experiencia comprobada: Más de [X] años brindando soluciones en telecomunicaciones y climatización",
+      "reason_2": "Técnicos certificados: Personal cualificado con formación continua en nuevas tecnologías",
+      "reason_3": "Calidad garantizada: Trabajamos con equipos y materiales de primera línea",
+      "reason_4": "Atención personalizada: Nos adaptamos a las necesidades específicas de cada cliente",
+      "reason_5": "Cumplimiento y puntualidad: Valoramos tu tiempo y entregamos en los plazos acordados"
     }
   },
+  "section_about": {
+    "title": "Quiénes somos",
+    "description": "Contamos con un equipo técnico altamente capacitado en redes de telecomunicaciones y sistemas de climatización. Nuestro compromiso es brindar soluciones eficientes, seguras y duraderas tanto en la instalación como en el mantenimiento de redes de fibra óptica y equipos de climatización industrial y doméstica."
+  },
+
+
+
   "footer": {
     "text_1": "Disponible en",
     "text_2": "Aviso legal",
     "text_21": "Política de Privacidad",
     "text_3": "Términos y Condiciones",
     "text_4": "Contacto",
-    "text_5": "Copyright © 2023 Instal-larnet Contigo",
-    "text_6": "Síguenos en nuestras redes"
+    "text_5": "Copyright © 2023 Instal-larnet",
+    "text_6": "Síguenos en nuestras redes",
+    "links": {
+      "legal": "assets/docs/aviso-legal.pdf",
+      "privacy": "assets/docs/politica-privacidad.pdf",
+      "terms": "assets/docs/terminos-condiciones.pdf",
+      "contact": "#contacto"
+    },
+    "social": {
+      "facebook": "https://facebook.com/instal.larnet",
+      "instagram": "https://instagram.com/instal.larnet",
+      "whatsapp": "https://wa.me/34XXXXXXXXX"
+    }
   }
+
 }
 

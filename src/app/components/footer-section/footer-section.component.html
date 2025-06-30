@@ -1,11 +1,65 @@
-<footer  class="bg-primary text-white py-6">
-    <div class="text-center text-sm space-y-1">
-        <p>{{ config.footer.text_1 }}</p>
-        <p>
-            <a href="/legal" class="underline">{{ config.footer.text_2 }}</a> ·
-            <a href="/privacidad" class="underline">{{ config.footer.text_3 }}</a>
-        </p>
-        <p>{{ config.footer.text_4 }}</p>
+<footer class="bg-[#355375] text-white py-10 px-4 text-sm">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 text-center md:text-left">
+
+        <!-- Sección 1: Disponibilidad -->
+        <div>
+            <p class="font-semibold mb-2">{{ 'footer.text_1' | translate }}</p>
+            <p class="flex items-center justify-center md:justify-start gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z" />
+                </svg>
+              Tarragona, Cataluña, España
+            </p>
+        </div>
+
+        <!-- Sección 2: Enlaces legales -->
+        <div class="space-y-1">
+            <a [href]="'footer.links.legal' | translate" target="_blank" rel="noopener" class="block hover:underline  items-center gap-1">
+                {{ 'footer.text_2' | translate }}
+            </a>
+            <a [href]="'footer.links.privacy' | translate" target="_blank" rel="noopener" class="block hover:underline  items-center gap-1">
+                {{ 'footer.text_21' | translate }}
+            </a>
+            <a [href]="'footer.links.terms' | translate" target="_blank" rel="noopener" class="block hover:underline  items-center gap-1">
+                {{ 'footer.text_3' | translate }}
+            </a>
+            <a [href]="'footer.links.contact' | translate" class="block hover:underline  items-center gap-1">
+                {{ 'footer.text_4' | translate }}
+            </a>
+        </div>
+
+
+        <!-- Sección 3: Redes sociales y copyright -->
+        <div>
+            <p class="mb-2 flex items-center justify-center md:justify-start gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z" />
+                </svg>
+                {{ 'footer.text_6' | translate }}
+            </p>
+            <div class="flex justify-center md:justify-start gap-4 mb-2">
+                <a [href]="'footer.social.facebook' | translate" target="_blank" aria-label="Facebook" class="hover:text-gray-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M22 12a10 10 0 10-11.5 9.95v-7.05h-2v-2.9h2v-2.2c0-2 1.2-3.1 3-3.1.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2v1.9h2.5l-.4 2.9h-2.1v7.05A10 10 0 0022 12z"/>
+                    </svg>
+                </a>
+                <a [href]="'footer.social.instagram' | translate" target="_blank" aria-label="Instagram" class="hover:text-gray-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.6 0 3 1.4 3 3v10c0 1.6-1.4 3-3 3H7c-1.6 0-3-1.4-3-3V7c0-1.6 1.4-3 3-3zm5 2a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5-1a1 1 0 110 2 1 1 0 010-2z"/>
+                    </svg>
+                </a>
+                <a [href]="'footer.social.whatsapp' | translate" target="_blank" aria-label="WhatsApp" class="hover:text-gray-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12.04 2c5.52 0 10 4.48 10 10 0 1.76-.46 3.4-1.28 4.86L22 22l-5.2-1.4a9.9 9.9 0 01-4.76 1.2c-5.52 0-10-4.48-10-10s4.48-10 10-10zm0 2C7.62 4 4 7.62 4 12c0 1.56.52 3.02 1.4 4.2l-.9 3.28 3.36-.88A7.98 7.98 0 0012 20c4.38 0 8-3.62 8-8s-3.62-8-8-8zm-1.06 4.22c.2-.44.5-.48.84-.48h.4c.2 0 .48.08.68.32.24.28 1.2 1.48 1.28 1.6.08.12.16.24.16.4 0 .16-.08.32-.16.44-.16.2-.36.28-.6.28-.24 0-.48-.08-.76-.2-.24-.12-.64-.32-1.08-.64-.48-.32-.84-.64-1.2-1.12-.36-.48-.64-.96-.8-1.4-.16-.44-.16-.8.04-1.2z"/>
+                    </svg>
+                </a>
+            </div>
+            <p class="text-xs text-gray-300">
+                {{ 'footer.text_5' | translate }}
+            </p>
+        </div>
+
     </div>
 </footer>
+
 

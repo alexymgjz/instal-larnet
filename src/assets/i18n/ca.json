@@ -8,83 +8,68 @@
     }
   },
   "section_hero": {
-    "visible": true,
-    "background": {
-      "color": "#fffaf7",
-      "image": "assets/img/main-bg.svg",
-      "position": "bottom right",
-      "size": "83%",
-      "repeat": "no-repeat"
-    },
-    "headline": {
-      "text": "Connectem el teu món. Climatitzem el teu espai.",
-      "font": "Radio_Canada_Big",
-      "weight": "700",
-      "textColor": "text-custom-text-color",
-      "animationDelay": "0.5s",
-      "fontSize": "clamp(2.1875rem, 1.7153rem + 2.2222vw, 3.4375rem)"
-    },
-    "subheadline": {
-      "text": "Solucions professionals en instal·lació i manteniment de fibra òptica i sistemes de climatització.",
-      "font": "lato",
-      "weight": "400",
-      "textColor": "text-custom-text-color",
-      "animationDelay": "0.9s",
-      "fontSize": "clamp(1.25rem, 1.1556rem + 0.4444vw, 1.5rem)"
-    },
-    "buttons": [
-      {
-        "text": "Sol·licita el teu pressupost gratuït",
-        "link": "#contacte",
-        "bgColor": "bg-accent",
-        "textColor": "text-white"
-      }
-    ]
-  },
-  "section_about": {
-    "title": "Qui Som",
-    "description": "Comptem amb un equip tècnic altament capacitat en xarxes de telecomunicacions i sistemes de climatització. El nostre compromís és oferir solucions eficients, segures i duradores tant en la instal·lació com en el manteniment de xarxes de fibra òptica i equips de climatització industrial i domèstica."
+    "headline": "Connectem el teu món. Climatitzem el teu espai.",
+    "subheadline": "Solucions professionals en instal·lació i manteniment de fibra òptica i sistemes de climatització.",
+    "buttons": {
+      "text": "Sol·licita el teu pressupost gratuït",
+      "link": "#contacte",
+      "bgColor": "bg-accent",
+      "textColor": "text-white"
+    }
   },
   "section_services": {
-    "title": "Els Nostres Serveis",
-    "services": [
-      {
-        "category": "Instal·lació i Manteniment de Fibra Òptica",
-        "items": {
-          "item_1": "Tendits i canalitzacions de xarxes FTTH",
-          "item_2": "Fusió de fibra i certificació d'enllaços",
-          "item_3": "Diagnòstic i reparació d'avaries a la xarxa",
-          "item_4": "Suport per a llars, edificis i empreses"
-        }
-      },
-      {
-        "category": "Instal·lació i Manteniment d'Equips de Climatització",
-        "items": {
-          "item_1": "Muntatge d'aires condicionats tipus split, multisplit i sistemes VRV",
-          "item_2": "Càrrega de gas, neteja de filtres i revisió de funcionament",
-          "item_3": "Manteniment preventiu i correctiu",
-          "item_4": "Instal·lació adaptada a espais residencials i industrials"
-        }
+    "title": "Els nostres serveis",
+    "service_Fibra": {
+      "category": "Instal·lació i manteniment de fibra òptica",
+      "items": {
+        "item_1": "Tendits i canalitzacions de xarxes FTTH",
+        "item_2": "Fusió de fibra i certificació d'enllaços",
+        "item_3": "Diagnòstic i reparació d'errors en la xarxa",
+        "item_4": "Suport per a llars, edificis i empreses"
       }
-    ]
+    },
+    "service_Maintain": {
+      "category": "Instal·lació i manteniment de climatització",
+      "items": {
+        "item_1": "Muntatge d'aires condicionats split, multisplit i VRV",
+        "item_2": "Càrrega de gas, neteja de filtres i revisió",
+        "item_3": "Manteniment preventiu i correctiu",
+        "item_4": "Instal·lació per a espais residencials i industrials"
+      }
+    }
   },
   "section_why_us": {
     "title": "Per què escollir-nos?",
     "reasons": {
-      "reason_1": "✔️ Experiència comprovada: Més de [X] anys oferint solucions en telecomunicacions i climatització",
-      "reason_2": "✔️ Tècnics certificats: Personal qualificat amb formació contínua en noves tecnologies",
-      "reason_3": "✔️ Qualitat garantida: Treballem amb equips i materials de primera línia",
-      "reason_4": "✔️ Atenció personalitzada: Ens adaptem a les necessitats específiques de cada client",
-      "reason_5": "✔️ Compliment i puntualitat: Valorem el teu temps i lliurem dins dels terminis acordats"
+      "reason_1": "Experiència demostrada: Més de [X] anys oferint solucions en telecomunicacions i climatització",
+      "reason_2": "Tècnics certificats: Personal qualificat amb formació contínua en noves tecnologies",
+      "reason_3": "Qualitat garantida: Treballem amb equips i materials de primera qualitat",
+      "reason_4": "Atenció personalitzada: Ens adaptem a les necessitats específiques de cada client",
+      "reason_5": "Compliment i puntualitat: Valorem el teu temps i complim els terminis acordats"
     }
   },
+  "section_about": {
+    "title": "Qui som",
+    "description": "Comptem amb un equip tècnic altament capacitat en xarxes de telecomunicacions i sistemes de climatització. El nostre compromís és oferir solucions eficients, segures i duradores tant en la instal·lació com en el manteniment de xarxes de fibra òptica i equips de climatització industrial i domèstica."
+  },
   "footer": {
-    "text_1": "Disponible en",
+    "text_1": "Disponible a",
     "text_2": "Avís legal",
-    "text_21": "Política de Privacitat",
-    "text_3": "Termes i Condicions",
+    "text_21": "Política de privacitat",
+    "text_3": "Termes i condicions",
     "text_4": "Contacte",
-    "text_5": "Copyright © 2023 Instal-larnet Contigo",
-    "text_6": "Segueix-nos a les nostres xarxes socials"
+    "text_5": "Copyright © 2023 Instal-larnet",
+    "text_6": "Segueix-nos a les nostres xarxes",
+    "links": {
+      "legal": "assets/docs/aviso-legal.pdf",
+      "privacy": "assets/docs/politica-privacidad.pdf",
+      "terms": "assets/docs/terminos-condiciones.pdf",
+      "contact": "#contacto"
+    },
+    "social": {
+      "facebook": "https://facebook.com/instal.larnet",
+      "instagram": "https://instagram.com/instal.larnet",
+      "whatsapp": "https://wa.me/34XXXXXXXXX"
+    }
   }
 }

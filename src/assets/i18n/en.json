@@ -8,75 +8,49 @@
     }
   },
   "section_hero": {
-    "visible": true,
-    "background": {
-      "color": "#fffaf7",
-      "image": "assets/img/main-bg.svg",
-      "position": "bottom right",
-      "size": "83%",
-      "repeat": "no-repeat"
-    },
-    "headline": {
-      "text": "We connect your world. We climatize your space.",
-      "font": "Radio_Canada_Big",
-      "weight": "700",
-      "textColor": "text-custom-text-color",
-      "animationDelay": "0.5s",
-      "fontSize": "clamp(2.1875rem, 1.7153rem + 2.2222vw, 3.4375rem)"
-    },
-    "subheadline": {
-      "text": "Professional solutions in fiber optic installation and maintenance, and air conditioning systems.",
-      "font": "lato",
-      "weight": "400",
-      "textColor": "text-custom-text-color",
-      "animationDelay": "0.9s",
-      "fontSize": "clamp(1.25rem, 1.1556rem + 0.4444vw, 1.5rem)"
-    },
-    "buttons": [
-      {
-        "text": "Request your free quote",
-        "link": "#contact",
-        "bgColor": "bg-accent",
-        "textColor": "text-white"
-      }
-    ]
-  },
-  "section_about": {
-    "title": "About Us",
-    "description": "We have a highly trained technical team in telecommunications networks and air conditioning systems. Our commitment is to provide efficient, safe, and durable solutions in the installation and maintenance of fiber optic networks and industrial and domestic air conditioning equipment."
+    "headline": "We connect your world. We climatize your space.",
+    "subheadline": "Professional solutions for fiber optic and HVAC installation and maintenance.",
+    "buttons": {
+      "text": "Request your free quote",
+      "link": "#contact",
+      "bgColor": "bg-accent",
+      "textColor": "text-white"
+    }
   },
   "section_services": {
     "title": "Our Services",
-    "services": [
-      {
-        "category": "Fiber Optic Installation and Maintenance",
-        "items": {
-          "item_1": "FTTH network cabling and ducting",
-          "item_2": "Fiber splicing and link certification",
-          "item_3": "Network fault diagnosis and repair",
-          "item_4": "Support for homes, buildings, and businesses"
-        }
-      },
-      {
-        "category": "Air Conditioning Equipment Installation and Maintenance",
-        "items": {
-          "item_1": "Installation of split, multisplit, and VRV air conditioning systems",
-          "item_2": "Gas charging, filter cleaning, and performance check",
-          "item_3": "Preventive and corrective maintenance",
-          "item_4": "Installation adapted to residential and industrial spaces"
-        }
+    "service_Fibra": {
+      "category": "Fiber Optic Installation and Maintenance",
+      "items": {
+        "item_1": "FTTH network deployment and ducting",
+        "item_2": "Fiber fusion splicing and link certification",
+        "item_3": "Network failure diagnosis and repair",
+        "item_4": "Support for homes, buildings, and businesses"
       }
-    ]
+    },
+    "service_Maintain": {
+      "category": "HVAC Installation and Maintenance",
+      "items": {
+        "item_1": "Installation of split, multisplit and VRV air conditioners",
+        "item_2": "Gas refill, filter cleaning, and system check",
+        "item_3": "Preventive and corrective maintenance",
+        "item_4": "Installation for residential and industrial spaces"
+      }
+    }
   },
   "section_why_us": {
     "title": "Why Choose Us?",
     "reasons": {
-      "reason_1": "✔️ Proven experience: Over [X] years providing solutions in telecommunications and air conditioning",
-      "reason_2": "✔️ Certified technicians: Qualified personnel with continuous training in new technologies",
-      "reason_3": "✔️ Guaranteed quality: We work with top-quality equipment and materials",
-      "reason_4": "✔️ Personalized attention: We adapt to the specific needs of each client",
-      "reason_5": "✔️ Compliance and punctuality: We value your time and deliver on agreed deadlines"
+      "reason_1": "Proven experience: Over [X] years providing telecom and HVAC solutions",
+      "reason_2": "Certified technicians: Qualified staff with ongoing training in new technologies",
+      "reason_3": "Guaranteed quality: We work with top-quality equipment and materials",
+      "reason_4": "Personalized service: We adapt to each client's specific needs",
+      "reason_5": "Punctuality and reliability: We value your time and meet all deadlines"
     }
+  },
+  "section_about": {
+    "title": "Who We Are",
+    "description": "We have a highly trained technical team specialized in telecommunications networks and climate control systems. Our commitment is to provide efficient, safe, and long-lasting solutions for both the installation and maintenance of fiber optic networks and HVAC equipment for residential and industrial use."
   },
   "footer": {
     "text_1": "Available in",
@@ -84,7 +58,18 @@
     "text_21": "Privacy Policy",
     "text_3": "Terms and Conditions",
     "text_4": "Contact",
-    "text_5": "Copyright © 2023 Instal-larnet Contigo",
-    "text_6": "Follow us on our social networks"
+    "text_5": "Copyright © 2023 Instal-larnet",
+    "text_6": "Follow us on social media",
+    "links": {
+      "legal": "assets/docs/aviso-legal.pdf",
+      "privacy": "assets/docs/politica-privacidad.pdf",
+      "terms": "assets/docs/terminos-condiciones.pdf",
+      "contact": "#contacto"
+    },
+    "social": {
+      "facebook": "https://facebook.com/instal.larnet",
+      "instagram": "https://instagram.com/instal.larnet",
+      "whatsapp": "https://wa.me/34XXXXXXXXX"
+    }
   }
 }

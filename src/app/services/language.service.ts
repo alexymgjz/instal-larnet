@@ -1,13 +1,11 @@
 import { inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { CommonService } from './common.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LanguageService {
   private translate = inject(TranslateService);
-  private common = inject(CommonService);
 
   private readonly supportedLanguages: string[] = ['es', 'en', 'ca'];
   readonly language: WritableSignal<string> = signal('es');
@@ -17,7 +15,7 @@ export class LanguageService {
   }
 
   async initLanguage() {
-    let langToUse = await this.common.getItem('locale');
+    let langToUse = this.language(); // ✅ lectura del valor actual de la signal
 
     if (!langToUse) {
       const browserLang = this.translate.getBrowserLang();
@@ -28,20 +26,17 @@ export class LanguageService {
       }
     }
 
-    this.setLanguage(langToUse); // ✅ langToUse es ahora siempre un string
+    this.setLanguage(langToUse);
   }
-
 
   setLanguage(lang: string) {
     this.language.set(lang);
     this.translate.setDefaultLang(lang);
     this.translate.use(lang);
-    this.common.setItem('locale', lang);
-    console.log(lang  +'ini' + '')
   }
 
   getLanguage(): string {
-    return this.language(); // ← lectura actual del idioma
+    return this.language(); // ✅ correcto
   }
 
   getAvailableLanguages(): string[] {

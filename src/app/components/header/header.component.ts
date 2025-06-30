@@ -1,12 +1,10 @@
-import {Component, computed, effect, inject, OnInit, signal} from '@angular/core';
+import {Component, effect, inject, OnInit, signal} from '@angular/core';
 import {NgClass, NgForOf, NgIf, UpperCasePipe} from '@angular/common';
 import {TranslateModule} from '@ngx-translate/core';
 import {LanguageService} from '../../services/language.service';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {FirebaseApp} from "@angular/fire/app";
 import {MantenimientoComponent} from "../mantenimiento/mantenimiento.component";
-import {UiStateService} from "../../services/UiStateService";
-import {ConfigStoreService} from "../../services/config-store.service";
+
 @Component({
   selector: 'app-header',
   imports: [
@@ -27,8 +25,6 @@ import {ConfigStoreService} from "../../services/config-store.service";
 export class HeaderComponent implements OnInit {
   activeChild: string = 'app-section-1'; // Estado para controlar qué componente hijo está activo
   isMenuOpen = false;
-  private ui = inject(UiStateService);
-  showMaintenanceModal = this.ui.showMaintenanceModal;
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
@@ -88,49 +84,42 @@ export class HeaderComponent implements OnInit {
 
 
 
-  isInitialized = false;
-
-
-
-  openMaintenanceModal() {
-    this.showMaintenanceModal.set(true)
-    this.isMenuOpen = false; // Cierra menú mobile si estaba abierto
-  }
-
-  closeMaintenanceModal() {
-    this.showMaintenanceModal.set(false)
-  }
-
-
-
-
   isLoading = false;
   async onLanguageChange(lang: string) {
     if (lang !== this.languageService.language()) {
       this.isLoading = true;
       this.languageService.setLanguage(lang);
-      await this.configStore.load();
       this.selectedLanguage = lang; // ← ahora sí, después de tener todo cargado
       this.isLoading = false;
     }
   }
 
 
-
-  private configStore = inject(ConfigStoreService);
   readonly currentLang = signal('es');
-  readonly config = computed(() => this.configStore.config());
 
-  translatedTexts = signal<{menu: string; services: string; team: string ; maintenance: string}>({
-    menu: '',
-    services: '',
-    team: '',
-    maintenance: ''
-  });
+
 
   getMenuText(): string {
-      const lang = this.currentLang();
-      return lang === 'es' ? this.config().section_header.home : this.translatedTexts().menu;
+    return this.currentLang()  ;
+  }
+
+
+  // Signal para controlar la visibilidad del modal
+  private _showMaintenanceModal = signal(false);
+
+  // Método para mostrar el modal
+  openMaintenanceModal(): void {
+    this._showMaintenanceModal.set(true);
+  }
+
+  // Método para cerrar el modal
+  closeMaintenanceModal(): void {
+    this._showMaintenanceModal.set(false);
+  }
+
+  // Getter para usar en el HTML con showMaintenanceModal()
+  showMaintenanceModal(): boolean {
+    return this._showMaintenanceModal();
   }
 
 }
