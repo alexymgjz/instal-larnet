@@ -60,19 +60,19 @@
     "text_2": "Aviso legal",
     "text_21": "Política de Privacidad",
     "text_3": "Términos y Condiciones",
-    "text_4": "Contacto",
+    "text_4": "Contacto:installarnet.sl@gmail.com",
     "text_5": "Copyright © 2023 Instal-larnet",
     "text_6": "Síguenos en nuestras redes",
     "links": {
       "legal": "assets/docs/aviso-legal.pdf",
       "privacy": "assets/docs/politica-privacidad.pdf",
       "terms": "assets/docs/terminos-condiciones.pdf",
-      "contact": "#contacto"
+      "contact": "mailto:installarnet.sl@gmail.com"
     },
     "social": {
       "facebook": "https://facebook.com/instal.larnet",
       "instagram": "https://instagram.com/instal.larnet",
-      "whatsapp": "https://wa.me/34XXXXXXXXX"
+      "whatsapp": "https://wa.me/34 624 42 84 90"
     }
   }
 

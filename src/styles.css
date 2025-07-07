@@ -89,9 +89,15 @@ font-family: Radio_Canada_Big, serif;
   font-family: Lato, serif;
 }
 
-.headerActive{
-  color: #FF6946;
+.headerActive {
+  color: #355375;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: #355375;
+  text-decoration-thickness: 3px;   /* más gruesa */
+  text-underline-offset: 4px;       /* más separada del texto */
 }
+
 html {
   scroll-behavior: smooth;
 }
