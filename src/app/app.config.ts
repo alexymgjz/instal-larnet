@@ -1,4 +1,4 @@
-import {ApplicationConfig, importProvidersFrom, provideZoneChangeDetection} from '@angular/core';
+import {APP_INITIALIZER, ApplicationConfig, importProvidersFrom, provideZoneChangeDetection} from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpBackend, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
@@ -7,7 +7,16 @@ import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAnalytics, getAnalytics } from '@angular/fire/analytics';
 import {newTranslateLoader} from "../main";
 import {routes} from "./app.routes";
-import {getFirestore, provideFirestore} from "@angular/fire/firestore";
+import {Firestore, getFirestore, provideFirestore} from "@angular/fire/firestore";
+import {FirestoreTranslateLoader} from "./services/firestore-translate-loader.service";
+import {getAuth, provideAuth} from "@angular/fire/auth";
+
+import { SUPPORTED_LANGUAGES } from './config/supported-languages';
+import {TranslationInitService} from "./services/TranslationInitService";
+
+function initTranslations(service: TranslationInitService): () => Promise<void> {
+    return () => service.ensureTranslationsExist(SUPPORTED_LANGUAGES);
+}
 
 
 const firebaseConfig = {
@@ -23,6 +32,12 @@ const firebaseConfig = {
 
 export const appConfig: ApplicationConfig = {
     providers: [
+        {
+            provide: APP_INITIALIZER,
+            useFactory: initTranslations,
+            deps: [TranslationInitService],
+            multi: true
+        },
         provideZoneChangeDetection({ eventCoalescing: true }),
         provideRouter(routes),
 
@@ -31,14 +46,15 @@ export const appConfig: ApplicationConfig = {
                 defaultLanguage: 'es',
                 loader: {
                     provide: TranslateLoader,
-                    useFactory: newTranslateLoader,
-                    deps: [HttpBackend]
+                    useFactory: (firestore: Firestore) => new FirestoreTranslateLoader(firestore),
+                    deps: [Firestore]
                 }
             })
         ),
 
         provideHttpClient(withInterceptorsFromDi()),
         provideFirebaseApp(() => initializeApp(firebaseConfig)),
+        provideAuth(() => getAuth()), // ✅ << AÑADE ESTA LÍNEA
         provideFirestore(() => getFirestore()),
         provideAnalytics(() => getAnalytics())
 

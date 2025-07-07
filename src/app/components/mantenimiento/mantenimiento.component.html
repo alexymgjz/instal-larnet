@@ -15,6 +15,20 @@
 
     <!-- Panel de edición -->
     <div *ngIf="acceso()">
-        hola
+        <h2 class="text-center text-purple-700 font-bold mb-4">Mantenimiento</h2>
+        <p class="text-center mb-4">Edición de traducciones ({{ currentLang }})</p>
+
+        <form (ngSubmit)="save()">
+            <div *ngFor="let section of translations | keyvalue : customCompareFn" class="mb-6 border-b pb-4">
+                <h3 class="text-sm font-bold text-gray-700">{{ section.key }}</h3>
+                <app-translation-field [data]="section.value" />
+            </div>
+
+            <button type="submit" class="bg-blue-600 text-white font-medium py-2 px-6 rounded hover:bg-blue-700 transition">
+                Guardar
+            </button>
+        </form>
+
+
     </div>
 </div>

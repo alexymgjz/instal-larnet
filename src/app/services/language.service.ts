@@ -1,5 +1,6 @@
 import { inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { SUPPORTED_LANGUAGES } from '../config/supported-languages';
 
 @Injectable({
   providedIn: 'root',
@@ -7,14 +8,14 @@ import { TranslateService } from '@ngx-translate/core';
 export class LanguageService {
   private translate = inject(TranslateService);
 
-  private readonly supportedLanguages: string[] = ['es', 'en', 'ca'];
+  private readonly supportedLanguages: string[] = SUPPORTED_LANGUAGES;
   readonly language: WritableSignal<string> = signal('es');
 
   constructor() {
     this.initLanguage();
   }
 
-  async initLanguage() {
+/*  async initLanguage() {
     let langToUse = this.language(); // ✅ lectura del valor actual de la signal
 
     if (!langToUse) {
@@ -27,7 +28,23 @@ export class LanguageService {
     }
 
     this.setLanguage(langToUse);
+  }*/
+  async initLanguage(): Promise<string> {
+    let langToUse = this.language(); // lectura del valor actual de la signal
+
+    if (!langToUse) {3
+      const browserLang = this.translate.getBrowserLang();
+      if (browserLang && this.includeLanguage(browserLang)) {
+        langToUse = browserLang;
+      } else {
+        langToUse = 'es';
+      }
+    }
+
+    this.setLanguage(langToUse);
+    return langToUse; // ✅ <- aquí retornamos el string
   }
+
 
   setLanguage(lang: string) {
     this.language.set(lang);

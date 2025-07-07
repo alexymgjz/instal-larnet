@@ -1,4 +1,4 @@
-import {Component, effect, inject, OnInit, signal} from '@angular/core';
+import {Component, effect, signal} from '@angular/core';
 import {NgClass, NgForOf, NgIf, UpperCasePipe} from '@angular/common';
 import {TranslateModule} from '@ngx-translate/core';
 import {LanguageService} from '../../services/language.service';
@@ -22,7 +22,7 @@ import {MantenimientoComponent} from "../mantenimiento/mantenimiento.component";
   styleUrl: './header.component.css',
   standalone: true}
 )
-export class HeaderComponent implements OnInit {
+export class HeaderComponent{
   activeChild: string = 'app-section-1'; // Estado para controlar qué componente hijo está activo
   isMenuOpen = false;
   toggleMenu() {
@@ -55,9 +55,6 @@ export class HeaderComponent implements OnInit {
         this.languageService.setLanguage(lang);
       }
     });
-  }
-
-  ngOnInit(): void {
     this.availableLanguages = this.languageService.getAvailableLanguages();
 
     // Valor inicial desde signal o localStorage (según lo que uses en LanguageService)
